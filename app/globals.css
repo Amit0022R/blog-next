@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #18181b;
+  --surface: #23272f;
+  --foreground: #f4f4f5;
+  --primary: #6366f1;
+  --primary-hover: #4338ca;
+  --accent: #06d6a0;
+  --border: #313244;
+  --muted: #a1a1aa;
+  --shadow: 0 4px 24px 0 rgba(80, 120, 255, 0.10);
+  --radius: 16px;
+  --transition: 0.18s cubic-bezier(.4,0,.2,1);
+  --font-main: 'Inter', 'Geist', 'Segoe UI', Arial, sans-serif;
 }
 
 @theme inline {
@@ -12,15 +22,65 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
+  min-height: 100vh;
+  font-family: var(--font-main);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2D35;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4AD7FF;
+}
+
+/* Custom button hover styles */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  outline: none;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(90deg, var(--primary-hover), var(--accent));
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.18);
+}
+
+/* Card styles */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.14);
+  border-color: var(--primary);
+}
+
