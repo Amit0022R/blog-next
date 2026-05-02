@@ -1,4 +1,4 @@
-# Blogguu - Full Stack Blog Application
+# Blogify - Full Stack Blog Application
 
 A complete blog application built with Next.js 16 and Supabase, featuring user authentication, blog post creation, and management.
 
